@@ -1,0 +1,8 @@
+application:
+  version: 1.0.0
+  name: AI Powered Blog Generation Service
+  description: A service to generate blog content using AI.
+  environment: prod
+
+open-ai:
+  key: ${OPENAI_API_KEY}
