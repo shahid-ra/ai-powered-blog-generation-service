@@ -1,5 +1,5 @@
 crewai==1.9.3
-duckduckgo-search==8.1.1
+ddgs>=9.10.0
 fastapi>=0.100.0
 uvicorn[standard]>=0.20.0
 python-dotenv>=1.0.0

@@ -17,12 +17,13 @@ async def generate_blog(request: BlogGenerationRequest) -> BlogGenerationRespons
             topic=request.topic,
             blog_type=request.generation_type
         )
-        content = crew.run()
+        result = crew.run()
 
         return BlogGenerationResponse(
             topic=request.topic,
             generation_type=request.generation_type.value,
-            content=content,
+            content=result["content"],
+            sources=result["sources"],
             status="success"
         )
     except Exception as e:

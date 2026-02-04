@@ -42,3 +42,6 @@ class ResearchAgent:
             - Any recent trends or developments""",
             agent=agent,
         )
+
+    def get_sources(self) -> list[dict]:
+        return self.search_tool.get_sources()

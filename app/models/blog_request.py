@@ -1,3 +1,4 @@
+from typing import List
 from pydantic import BaseModel, Field
 from app.models.blog_generation_type import BlogGenerationType
 
@@ -30,10 +31,16 @@ class BlogGenerationRequest(BaseModel):
     }
 
 
+class Source(BaseModel):
+    title: str = Field(description="Title of the source")
+    url: str = Field(description="URL of the source")
+
+
 class BlogGenerationResponse(BaseModel):
     topic: str = Field(description="The topic that was used for generation")
     generation_type: str = Field(description="The blog style that was used")
     content: str = Field(description="The generated blog content")
+    sources: List[Source] = Field(default_factory=list, description="List of sources used for research")
     status: str = Field(default="success", description="Status of the generation")
 
     model_config = {
@@ -43,6 +50,9 @@ class BlogGenerationResponse(BaseModel):
                     "topic": "The Future of Artificial Intelligence",
                     "generation_type": "professional",
                     "content": "# The Future of Artificial Intelligence\n\n...",
+                    "sources": [
+                        {"title": "AI News Article", "url": "https://example.com/ai-news"}
+                    ],
                     "status": "success"
                 }
             ]
