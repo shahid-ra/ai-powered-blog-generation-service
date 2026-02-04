@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from app.configs.config import config
-from app.routes import health_api
+from app.routes import health_api, blog_api
 
 app = FastAPI(title="AI Powered Blog Generation Service", version="1.0.0")
 
 app.include_router(health_api.router)
+app.include_router(blog_api.router)
 
 app.add_middleware(
 	CORSMiddleware,
