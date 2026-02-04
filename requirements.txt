@@ -1,5 +1,5 @@
-fastapi==0.116.1
-uvicorn[standard]==0.35.0
-httpx==0.28.1
-pydantic==2.11.7
-python-dotenv==1.1.1
+crewai==1.9.3
+duckduckgo-search==8.1.1
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+python-dotenv>=1.0.0
